@@ -1,0 +1,23 @@
+#!name=微信小程序罗森去广告
+#!desc=去除常见的广告和部分多余的模块
+#!author=_YLong[https://github.com/bitzo]
+#!homepage=https://github.com/bitzo/wool_scripts
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/wechat.png
+#!raw-url=ttps://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/plugin/WechatMiniAds_lawson.plugin
+#!category=广告拦截
+#!tag = 去广告, 微信小程序
+#!system = iOS, iPadOS
+#!system_version = 
+#!loon_version = 
+#!date=2025-06-06 17:24:28
+
+[Rewrite]
+# 罗森点点
+^https:\/\/plt\.yorentown\.com\/pltapp\/v1\/banner reject-dict
+
+[Script]
+http-response ^https:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v1\/\? script-path=https://raw.githubusercontent.com/Bitzo/wool_scripts/refs/heads/origin_main/Scripts/wechat/lawson.js, requires-body=true, timeout=60, tag=罗森广告处理
+http-response ^https:\/\/lawsonapi\.yorentown\.com\/portal\/app\/globalLaunch\/listAdvert\? script-path=https://raw.githubusercontent.com/Bitzo/wool_scripts/refs/heads/origin_main/Scripts/wechat/lawson.js, requires-body=true, timeout=60, tag=罗森广告处理
+
+[MITM]
+hostname = *.yorentown.com
