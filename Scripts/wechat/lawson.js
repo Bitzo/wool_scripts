@@ -3,8 +3,10 @@ let body = $response.body;
 let resp_data = JSON.parse(body);
 
 try {
+    console.log('request:', $request);
+    console.log('response:', $response);
     console.log('当前请求URL:', url);
-    console.log('响应数据:', resp_data.header?.data);
+    console.log('响应数据:', resp_data);
 
     // 处理弹窗和悬浮广告
     if (url.includes('/portal/app/globalLaunch/listAdvert?')) {
