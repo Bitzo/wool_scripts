@@ -9,7 +9,7 @@
 #!loon_version = 3.2.1(749)
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/blob/master/README.md
 #!icon = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/wechat.png
-#!date = 2024-09-27 22:18:09
+#!date = 2025-06-09 09:50:56
 
 [Rule]
 # 微信小程序通用规则
@@ -207,7 +207,6 @@ DOMAIN, e.jparking.cn, REJECT
 ^https:\/\/htwkop\.xiaojukeji\.com\/gateway\?api=hm\.fa\.mallRecommend reject-dict
 
 # 罗森点点 lawsonapi.yorentown.com, plt.yorentown.com
-^https:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v1\/mina\/systemSetting reject-dict
 ^https:\/\/plt\.yorentown\.com\/pltapp\/v1\/banner reject-dict
 
 # 老乡鸡 member.lxjchina.com.cn
@@ -302,7 +301,8 @@ http-response ^https:\/\/mapi\.xiaotucc\.com\/(mall\/main|main_page\/index\/getA
 http-response ^https:\/\/minifm\.maxxipoint\.com\/banner\/list script-path = https://raw.githubusercontent.com/Repcz/Tool/X/Loon/Script/lodepuly/WexinMiniPrograms/FamilyMart/FamilyMart.js, requires-body = true, tag = 全家微会员去广告
 
 # 罗森点点 lawsonapi.yorentown.com, plt.yorentown.com
-http-response ^https:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v1\/home script-path = https://raw.githubusercontent.com/Repcz/Tool/X/Loon/Script/lodepuly/WexinMiniPrograms/lawson/lawson.js, requires-body = true, tag = 罗森点点去广告
+http-response ^https:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v1\/ script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/wechat/lawson.js, requires-body=true, timeout=60, tag=罗森广告处理
+http-response ^https:\/\/lawsonapi\.yorentown\.com\/portal\/app\/globalLaunch\/listAdvert script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/wechat/lawson.js, requires-body=true, timeout=60, tag=罗森广告处理
 
 # 茶颜悦色 miniapp.sexytea2013.com
 http-response ^https:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/queryByCodes\?codes=INDEX_TOP_BANNER script-path = https://raw.githubusercontent.com/Repcz/Tool/X/Loon/Script/lodepuly/WexinMiniPrograms/chayanyuese/chayanyuese_remove_ads.js, requires-body = true, tag = 茶颜悦色去广告
