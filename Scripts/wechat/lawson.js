@@ -1,3 +1,8 @@
+/**
+ * Author: _YLong <https://github.com/Bitzo>
+ * Create: 2025-06-09 09:36
+ */
+
 let url = $request.url;
 let body = $response.body;
 let resp_data = JSON.parse(body);
