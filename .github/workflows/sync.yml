@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: custom
+          fetch-depth: 0
 
       - name: Sync upstream to main
         id: sync_main
