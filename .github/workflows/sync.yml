@@ -1,0 +1,32 @@
+name: Sync Upstream Repository
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # 每三小时执行一次
+  workflow_dispatch:       # 允许手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync upstream to main
+        id: sync_main
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+        with:
+          upstream_sync_repo: fmz200/wool_scripts
+          upstream_sync_branch: main
+          target_sync_branch: main
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          test_mode: false
+
+      - name: Sync upstream to custom
+        id: sync_custom
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+        with:
+          upstream_sync_repo: fmz200/wool_scripts
+          upstream_sync_branch: main
+          target_sync_branch: custom
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          test_mode: false
